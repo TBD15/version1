@@ -1,0 +1,22 @@
+{
+  "name": "version1",
+  "version": "1.0.0",
+  "description": "social market",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TBD15/version1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TBD15/version1/issues"
+  },
+  "homepage": "https://github.com/TBD15/version1#readme",
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}
