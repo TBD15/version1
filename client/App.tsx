@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import Signin from './pages/auth/signin';
 const Home: React.FC = () => {
   return (
     <div>
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Home/>,
     
+  },
+  {
+    path: '/signin',
+
   }
 ]);
 
