@@ -1,39 +1,3 @@
-// import React from 'react';
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import SignInScreen from './pages/auth/signin';
-// const Home: React.FC = () => {
-//   return (
-//     <div>
-//       hello
-//     </div>
-//   )
-// }
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Home/>,
-
-//   },
-//   {
-//     path: '/signin',
-//     element: <SignInScreen/>,
-
-//   }
-// ]);
-
-// const App: React.FC = () => {
-//   return (
-//     <React.StrictMode>
-//       {/* <ThemeProvider theme={theme}> */}
-//         <RouterProvider router={router} />
-//       {/* </ThemeProvider> */}
-//     </React.StrictMode>
-//   );
-// };
-
-// export default App;
-
 import React from "react";
 import {
   createBrowserRouter,

@@ -1,15 +1,9 @@
-import React from 'react';
-import { GetServerSideProps, NextPage } from 'next';
-import SignInBox from '../components/SignInBox/SignInBox';
-
-
+import React from "react";
+import { GetServerSideProps, NextPage } from "next";
+import SignInBox from "../components/SignInBox/SignInBox";
 
 const SignInScreen: NextPage = () => {
-  return (
-      <div>
-        Sign in
-      </div>
-  );
+  return <SignInBox />;
 };
 
 export default SignInScreen;

@@ -1,0 +1,8 @@
+@use "../../../styles/variables.scss" as *;
+
+.main {
+  background-color: $color-primary;
+  .innerBox {
+    background-color: $color-light-white;
+  }
+}
