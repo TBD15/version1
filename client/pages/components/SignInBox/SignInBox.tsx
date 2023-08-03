@@ -2,13 +2,15 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import styles from "./SignInBox.module.scss";
+import { Grid } from "@mui/material";
+import Link from "@mui/material/Link";
+
 const SignInBox: React.FC = () => {
   return (
-    <div className={styles.main}>
-      <header> CREATE ACCOUNT</header>
-      <div className={styles.innerBox}>
-        <h1>Log into [our name]</h1>
+    <body>
+      <div className={styles.main}>
         <form className={styles.form} noValidate>
+          <h1>Log into SocialFinds</h1>
           <p> EMAIL ADDRESS</p>
           <TextField
             className={styles.input}
@@ -16,6 +18,9 @@ const SignInBox: React.FC = () => {
             name='email'
             color='primary'
             placeholder='name@example.com'
+            sx={{ input: { color: "grey" } }}
+
+            // value={email}
           />
           <p> PASSWORD</p>
           <TextField
@@ -24,17 +29,28 @@ const SignInBox: React.FC = () => {
             name='password'
             color='primary'
             placeholder='Password'
+            sx={{ input: { color: "grey" } }}
+            // value={password}
           />
-          <button>Log In</button>
+          <button className={styles.loginButton}>Log In</button>
+          <Grid container>
+            <Grid item xs>
+              <Link href='#' variant='body2' color='textPrimary'>
+                CAN'T LOG IN?
+              </Link>
+            </Grid>
+          </Grid>
         </form>
 
-        <p>OR</p>
-        <button>Continue with Google</button>
-        <button>Continue with Apple</button>
-        <button>Continue with Facebook</button>
-        <p>CAN'T LOG IN?</p>
+        <div className={styles.separator}>Or</div>
+
+        <div className='social-login'>
+          <button className='google-login'>Login with Google</button>
+          <button className='facebook-login'>Login with Facebook</button>
+          <button className='apple-login'>Login with Apple</button>
+        </div>
       </div>
-    </div>
+    </body>
   );
 };
 

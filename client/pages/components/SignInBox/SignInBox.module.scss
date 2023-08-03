@@ -1,8 +1,144 @@
 @use "../../../styles/variables.scss" as *;
 
-.main {
+body {
+  margin: 0;
+  padding: 0;
   background-color: $color-primary;
-  .innerBox {
-    background-color: $color-light-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: $font-main;
+}
+
+.main {
+  display: flex;
+  align-items: stretch;
+  background-color: $color-light-white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px black;
+  overflow: hidden;
+  width: 80%;
+}
+
+.login-heading {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid $color-secondary;
+  h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: $color-primary;
+  }
+}
+
+.login-content {
+  display: flex;
+  align-items: stretch;
+}
+
+.login-form {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+
+  p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+
+  .loginButton {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+    }
+  }
+
+  .links {
+    margin-top: 2rem;
+  }
+}
+
+.separator {
+  margin: 20px 0;
+  font-size: 14px;
+  color: gray;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: palegreen; /* You can adjust the color here */
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
+
+.social-login {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  background-color: $color-secondary;
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+
+    &.google-login {
+      background-color: #db4437;
+      color: #fff;
+
+      &:hover {
+        background-color: darken(#db4437, 10%);
+      }
+    }
+
+    &.facebook-login {
+      background-color: #1877f2;
+      color: #fff;
+
+      &:hover {
+        background-color: darken(#1877f2, 10%);
+      }
+    }
+
+    &.apple-login {
+      background-color: #000;
+      color: #fff;
+
+      &:hover {
+        background-color: darken(#000, 10%);
+      }
+    }
   }
 }
