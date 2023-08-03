@@ -9,45 +9,47 @@ const SignInBox: React.FC = () => {
   return (
     <body>
       <div className={styles.main}>
-        <form className={styles.form} noValidate>
-          <h1>Log into SocialFinds</h1>
-          <p> EMAIL ADDRESS</p>
-          <TextField
-            className={styles.input}
-            id='email'
-            name='email'
-            color='primary'
-            placeholder='name@example.com'
-            sx={{ input: { color: "grey" } }}
+        <h1 className={styles.loginheading}>Log into SocialFinds</h1>
+        <div className={styles.logincontent}>
+          <form className={styles.loginform} noValidate>
+            <p> EMAIL ADDRESS</p>
+            <TextField
+              className={styles.input}
+              id='email'
+              name='email'
+              color='primary'
+              placeholder='name@example.com'
+              sx={{ input: { color: "grey" } }}
 
-            // value={email}
-          />
-          <p> PASSWORD</p>
-          <TextField
-            className={styles.input}
-            id='password'
-            name='password'
-            color='primary'
-            placeholder='Password'
-            sx={{ input: { color: "grey" } }}
-            // value={password}
-          />
-          <button className={styles.loginButton}>Log In</button>
-          <Grid container>
-            <Grid item xs>
-              <Link href='#' variant='body2' color='textPrimary'>
-                CAN'T LOG IN?
-              </Link>
+              // value={email}
+            />
+            <p> PASSWORD</p>
+            <TextField
+              className={styles.input}
+              id='password'
+              name='password'
+              color='primary'
+              placeholder='Password'
+              sx={{ input: { color: "grey" } }}
+              // value={password}
+            />
+            <button className={styles.loginButton}>Log In</button>
+            <Grid container>
+              <Grid item xs>
+                <Link href='#' variant='body2' color='textPrimary'>
+                  CAN'T LOG IN?
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
+          </form>
 
-        <div className={styles.separator}>Or</div>
+          <div className={styles.separator}>Or</div>
 
-        <div className={styles.socialL}>
-          <button className={styles.googleL}>Login with Google</button>
-          <button className={styles.facebookL}>Login with Facebook</button>
-          <button className={styles.appleL}>Login with Apple</button>
+          <div className={styles.socialL}>
+            <button className={styles.googleL}>Continue with Google</button>
+            <button className={styles.facebookL}>Continue with Facebook</button>
+            <button className={styles.appleL}>Continue with Apple</button>
+          </div>
         </div>
       </div>
     </body>

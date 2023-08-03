@@ -18,33 +18,43 @@ body {
   border-radius: 5px;
   box-shadow: 0px 2px 6px black;
   overflow: hidden;
-  width: 80%;
+  width: 830px;
+  height: 450px;
 }
 
-.login-heading {
+.loginheading {
   text-align: center;
-  padding: 20px;
-  border-bottom: 1px solid $color-secondary;
-  h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    color: $color-primary;
-  }
-}
-
-.login-content {
+  align-items: center;
+  justify-content: center;
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: $color-primary;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  position: absolute;
+  left: 525px;
+  top: 30%;
+  transform: translateY(-50%);
 }
 
-.login-form {
+.logincontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginform {
   flex: 1;
   padding: 20px;
-  text-align: center;
 
   p {
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 50px;
   }
 
   input {
@@ -107,17 +117,22 @@ body {
   padding: 20px;
   text-align: center;
   background-color: $color-light-white;
+  flex-direction: column;
+  justify-content: space-around;
 
   button {
     display: block;
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.3s ease;
+
+    & + button {
+      margin-top: 10px; /* Add margin between buttons */
+    }
 
     &.googleL {
       background-color: #db4437;
