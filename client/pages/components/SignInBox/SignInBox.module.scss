@@ -44,13 +44,15 @@ body {
 .logincontent {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .loginform {
   flex: 1;
   padding: 20px;
+  text-align: center;
+  flex-direction: column;
 
   p {
     font-size: 16px;
