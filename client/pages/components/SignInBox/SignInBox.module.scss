@@ -75,33 +75,38 @@ body {
 .separator {
   margin: 20px 0;
   font-size: 14px;
-  color: gray;
   position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 40%;
-    height: 2px; /* Adjust the height as needed */
-    background-color: palegreen; /* You can adjust the color here */
-  }
+  display: flex;
+  align-items: center;
 
   &::before {
-    left: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the line */
+    width: 2px; /* Adjust the width as needed */
+    height: 40%; /* Adjust the height as needed */
+    background-color: $color-secondary;
   }
-
   &::after {
-    right: 0;
+    top: calc(50% + 20px); /* Start after the space */
+    height: calc(50% - 2.5px); /* Half of the height minus half of the space */
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center the line */
+    width: 2px; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+    background-color: $color-secondary;
   }
 }
 
-.social-login {
+.socialL {
   flex: 1;
   padding: 20px;
   text-align: center;
-  background-color: $color-secondary;
+  background-color: $color-light-white;
 
   button {
     display: block;
@@ -114,7 +119,7 @@ body {
     font-size: 14px;
     transition: background-color 0.3s ease;
 
-    &.google-login {
+    &.googleL {
       background-color: #db4437;
       color: #fff;
 
@@ -123,7 +128,7 @@ body {
       }
     }
 
-    &.facebook-login {
+    &.facebookL {
       background-color: #1877f2;
       color: #fff;
 
@@ -132,7 +137,7 @@ body {
       }
     }
 
-    &.apple-login {
+    &.appleL {
       background-color: #000;
       color: #fff;
 

@@ -44,10 +44,10 @@ const SignInBox: React.FC = () => {
 
         <div className={styles.separator}>Or</div>
 
-        <div className='social-login'>
-          <button className='google-login'>Login with Google</button>
-          <button className='facebook-login'>Login with Facebook</button>
-          <button className='apple-login'>Login with Apple</button>
+        <div className={styles.socialL}>
+          <button className={styles.googleL}>Login with Google</button>
+          <button className={styles.facebookL}>Login with Facebook</button>
+          <button className={styles.appleL}>Login with Apple</button>
         </div>
       </div>
     </body>
