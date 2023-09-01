@@ -36,14 +36,14 @@ const SignInBox: React.FC = () => {
             <button className={styles.loginButton}>Log In</button>
             <Grid container>
               <Grid item xs>
-                <Link href='#' variant='body2' color='textPrimary'>
+                <Link className={styles.linkStyle} href='#' color='textPrimary'>
                   CAN'T LOG IN?
                 </Link>
               </Grid>
             </Grid>
           </form>
 
-          <div className={styles.separator}>Or</div>
+          <span>OR</span>
 
           <div className={styles.socialL}>
             <button className={styles.googleL}>Continue with Google</button>
