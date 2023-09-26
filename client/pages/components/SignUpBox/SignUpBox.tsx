@@ -1,24 +1,34 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import styles from "./SignInBox.module.scss";
+import styles from "./SignUpBox.module.scss";
 import { Grid } from "@mui/material";
-import Link from "@mui/material/Link";
 
 const SignInBox: React.FC = () => {
   return (
     <body>
       <div className={styles.main}>
-        <h1 className={styles.loginheading}>Log into SocialFinds</h1>
+        <h1 className={styles.loginheading}>Sign Up for SocialFinds</h1>
         <div className={styles.logincontent}>
           <form className={styles.loginform} noValidate>
+            <p> NAME</p>
+            <TextField
+              className={styles.input}
+              id='name'
+              name='name'
+              color='primary'
+              placeholder='Name'
+              sx={{ input: { color: "grey" } }}
+
+              // value={email}
+            />
             <p> EMAIL ADDRESS</p>
             <TextField
               className={styles.input}
               id='email'
               name='email'
               color='primary'
-              placeholder='name@example.com'
+              placeholder='Email'
               sx={{ input: { color: "grey" } }}
 
               // value={email}
@@ -29,17 +39,13 @@ const SignInBox: React.FC = () => {
               id='password'
               name='password'
               color='primary'
-              placeholder='Password'
+              placeholder='Create Password'
               sx={{ input: { color: "grey" } }}
               // value={password}
             />
-            <button className={styles.loginButton}>Log In</button>
+            <button className={styles.loginButton}>Submit</button>
             <Grid container>
-              <Grid item xs>
-                <Link className={styles.linkStyle} href='#' color='textPrimary'>
-                  Don't have an account? Please Sign up!
-                </Link>
-              </Grid>
+              <Grid item xs></Grid>
             </Grid>
           </form>
 
