@@ -3,8 +3,36 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import styles from "./SignUpBox.module.scss";
 import { Grid } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 const SignInBox: React.FC = () => {
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // // const data = new FormData(event.currentTarget);
+    // // console.log(data);
+    // console.log(firstName, lastName, email, password);
+    const body = JSON.stringify({
+      name,
+      email,
+      password,
+    });
+    console.log(body);
+    const response = await fetch("/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+    });
+
+    if (response.status === 200) {
+      navigate("/");
+    }
+  };
+
   return (
     <body>
       <div className={styles.main}>

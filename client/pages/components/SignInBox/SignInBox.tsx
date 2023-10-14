@@ -5,31 +5,33 @@ import styles from "./SignInBox.module.scss";
 import { Grid } from "@mui/material";
 import Link from "@mui/material/Link";
 import { useRouter } from "next/router";
-import serverInstance from "@/utils/serverInstance";
+import { useNavigate } from "react-router-dom";
 
 //empty interface for props becayse the component doesnt expect any additional pros other than the ones provided by React.FC
-
+interface SignInProps {}
 //PropsWithChildren: typscript utilites provied by React aht is used to create a new type by adding children to the existing props type
-const SignInBox: React.FC<React.FC<SignInProps>> = () => {
+const SignInBox: React.FC<React.PropsWithChildren<SignInProps>> = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const router = useRouter();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const body = JSON.stringify({
+      email,
+      password,
+    });
+    const response = await fetch("/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+    });
 
-    try {
-      await serverInstance.post("", {
-        email,
-        password,
-      });
-      router.push("/");
-    } catch (error) {
-      console.log(error);
+    if (response.status === 200) {
+      navigate("/");
     }
   };
-
   return (
     <body>
       <div className={styles.main}>
@@ -44,8 +46,8 @@ const SignInBox: React.FC<React.FC<SignInProps>> = () => {
               color='primary'
               placeholder='name@example.com'
               sx={{ input: { color: "grey" } }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              // value={email}
+              //onChange={(e) => setEmail(e.target.value)}
             />
             <p> PASSWORD</p>
             <TextField
@@ -55,8 +57,8 @@ const SignInBox: React.FC<React.FC<SignInProps>> = () => {
               color='primary'
               placeholder='Password'
               sx={{ input: { color: "grey" } }}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              //value={password}
+              //onChange={(e) => setPassword(e.target.value)}
             />
             <button className={styles.loginButton}>Log In</button>
             <Grid container>

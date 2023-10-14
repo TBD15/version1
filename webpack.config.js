@@ -38,7 +38,10 @@ module.exports = {
   },
   mode: "development",
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".css", "scss"],
+    extensions: [".tsx", ".ts", ".js", ".css", ".scss"],
+    fallback: {
+      fs: false,
+    },
   },
   output: {
     path: path.resolve(__dirname, "public"),
