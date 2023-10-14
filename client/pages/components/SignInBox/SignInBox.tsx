@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import serverInstance from "@/utils/serverInstance";
 
 //empty interface for props becayse the component doesnt expect any additional pros other than the ones provided by React.FC
-interface SignInProps {}
 
 //PropsWithChildren: typscript utilites provied by React aht is used to create a new type by adding children to the existing props type
 const SignInBox: React.FC<React.FC<SignInProps>> = () => {
