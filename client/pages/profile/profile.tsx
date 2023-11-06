@@ -15,6 +15,12 @@ export interface UserData {
   username: string;
   firstName: string;
 }
+//interface PostData
+interface Post {
+  id: string;
+  author: string;
+  imageURL: string;
+}
 
 let filterCardsByAuthor = false;
 //ProfilePage is the React component. It's a functional component
@@ -22,6 +28,9 @@ let filterCardsByAuthor = false;
 const ProfilePage = () => {
   //useState is used to manage the component's state, specifically user, which is used to store user data.
   const [user, setUser] = useState<UserData | undefined>(undefined);
+
+  //useState to manage component state, specifically posts, which is used to store post data.
+  const [posts, setPosts] = useState<any[]>([]);
   //useEffect hook is used to fetch user data from the backend when the component is mounted.
   useEffect(() => {
     //if there is no user, fetch the user data from the backend
@@ -48,6 +57,33 @@ const ProfilePage = () => {
     }
   });
 
+  //useEffect hook is used to fetch post data from the backend when the component is mounted.
+  useEffect(() => {
+    //if there are no posts, fetch the posts data from the backend
+    if (posts.length === 0) {
+      //fetch the posts data from the backend
+      fetch("/api/posts", { method: "GET" })
+        //if the response is 200, then return the data in json format
+        .then((d) => {
+          if (d.status !== 200) {
+            console.log(`Res status was not 200`);
+          }
+          return d.json();
+        })
+        //if there is an error, then log the error
+        .then((d) => {
+          // Set the posts state
+          //filter to only show posts by the user
+          if (filterCardsByAuthor) {
+            setPosts(d.filter((post: Post) => post.author === user?.username));
+          }
+        })
+        .catch((e) => {
+          console.log("Error occured: ", e);
+        });
+    }
+  });
+
   // This will be used to delete posts
 
   // This will handle post filtering
@@ -63,8 +99,8 @@ const ProfilePage = () => {
       <div className={styles.pinkHeader}>
         <div className={styles.header}>Profile</div>
       </div>
-      <div className={styles.profilesection}>
-        <div>
+      <div className={styles.background}>
+        <div className={styles.profilesection}>
           <img
             className={styles.profilePic}
             src={
@@ -72,15 +108,16 @@ const ProfilePage = () => {
             }
             alt='Pic'
           />
+
+          <div className={styles.profilename}>{user?.name || "kate"}</div>
+          <div className={styles.profileusername}>
+            {user?.username || "@kate"}
+          </div>
         </div>
-        <div className={styles.profilename}>{user?.name || "kate"}</div>
-        <div className={styles.profileusername}>
-          {user?.username || "@kate"}
+        <div className={styles.posts}>
+          Posts
+          <div className={styles.allPosts}>post1</div>
         </div>
-      </div>
-      <div className={styles.posts}>
-        Posts
-        {/* <div className={styles.allPosts}>post1</div> */}
       </div>
     </body>
   );
