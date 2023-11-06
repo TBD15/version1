@@ -9,29 +9,34 @@ import { useNavigate } from "react-router-dom";
 
 //empty interface for props becayse the component doesnt expect any additional pros other than the ones provided by React.FC
 interface SignInProps {}
-//PropsWithChildren: typscript utilites provied by React aht is used to create a new type by adding children to the existing props type
+//PropsWithChildren: typscript utilites provied by React that is used to create a new type by adding children to the existing props type
 const SignInBox: React.FC<React.PropsWithChildren<SignInProps>> = () => {
+  //create a state for the name, email and password
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  //use the useNavigate hook to navigate to the home page
   const navigate = useNavigate();
-
+  //create a function that will handle the submit event
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    //prevent the default behaviour of the form
     event.preventDefault();
+    //create a body variable that will store the data from the form
     const body = JSON.stringify({
       email,
       password,
     });
+    //fetch the data from the backend
     const response = await fetch("/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body,
     });
-
+    //if the response is 200, then navigate to the home page
     if (response.status === 200) {
       navigate("/");
     }
   };
+  //return the form
   return (
     <body>
       <div className={styles.main}>

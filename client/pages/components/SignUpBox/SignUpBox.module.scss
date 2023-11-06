@@ -31,7 +31,7 @@ body {
   padding: 10px;
   font-size: 40px;
   margin-bottom: 10px;
-  color: $color-primary;
+  color: darken($color-primary, 10%);
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
@@ -59,7 +59,7 @@ body {
 
   p {
     font-size: 16px;
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   input {
@@ -69,6 +69,7 @@ body {
     border-radius: 3px;
     font-size: 13px;
     text-align: center;
+    color: $font-color;
   }
 
   .loginButton {
@@ -77,10 +78,11 @@ body {
     padding: 10px 20px;
     border-radius: 3px;
     cursor: pointer;
+    background-color: $color-secondary;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: darken($color-secondary, 10%);
+      background-color: darken($color-dark-green, 0%);
     }
   }
 

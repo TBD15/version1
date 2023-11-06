@@ -9,6 +9,7 @@ import Root from "./routes/Root";
 import HomePage from "./routes/Home";
 import SignInScreen from "./pages/auth/SignInMain";
 import SignUpScreen from "./pages/auth/SignUpMain";
+import ProfileScreen from "./pages/profile/profile";
 import ErrorPage from "./routes/Error";
 
 const router = createBrowserRouter([
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUpScreen />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfileScreen />,
     errorElement: <ErrorPage />,
   },
 ]);

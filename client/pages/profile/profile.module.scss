@@ -1,0 +1,87 @@
+@use "../../styles/variables.scss" as *;
+
+body {
+  background-color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: $font-main;
+}
+
+.pinkHeader {
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: $font-main;
+  .header {
+    padding-top: 10%;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 50px;
+  }
+}
+
+// .pinkHeader {
+//   background-color: $color-primary;
+//   display: flex;
+//   flex-direction: column; /* Change to column layout */
+//   align-items: center;
+//   justify-content: center;
+//   min-height: 25%; /* Adjust to 25% of the viewport height */
+//   font-family: $font-main;
+//   padding-top: 300px; /* This can be adjusted as needed */
+// }
+
+.profilesection {
+  justify-content: center;
+  background-color: $color-light-white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px black;
+  overflow: hidden;
+  width: 830px;
+  height: 78vh;
+  margin: 100 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .profilePic {
+    border: 3px solid white; /* Adjust the border width as needed */
+    border-radius: 50%; /* Makes the image round */
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    //margin: 0 auto; /* Center the image within the container */
+    //position: absolute; /* Position the image */
+    // top: 30%; /* Position the image within the container */
+    // left: 50%; /* Position the image within the container */
+    // transform: translate(
+    //   -50%,
+    //   -50%
+    // ); /* Position the image within the container */
+  }
+
+  .profilename {
+    justify-content: right;
+    background-color: $color-light-white;
+    // text-align: center;
+    font-size: 20px;
+    overflow: hidden;
+    // margin-top: -40%;
+  }
+
+  .profileusername {
+    // text-align: center;
+    font-size: 10px;
+    margin-bottom: 10px;
+    color: $color-primary;
+  }
+}
+
+.posts {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: $color-primary;
+  text-align: center;
+}
