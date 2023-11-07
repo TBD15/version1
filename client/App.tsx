@@ -9,7 +9,7 @@ import Root from "./routes/Root";
 import HomePage from "./routes/Home";
 import SignInScreen from "./pages/auth/SignInMain";
 import SignUpScreen from "./pages/auth/SignUpMain";
-import ProfileScreen from "./pages/profile/profile";
+import ProfileScreen from "./pages/components/profile/profile";
 import ErrorPage from "./routes/Error";
 
 const router = createBrowserRouter([

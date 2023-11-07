@@ -60,47 +60,34 @@ const ProfilePage = () => {
     if (!user) {
       //fetch the user data from the backend
       fetch("/api/auth/user", { method: "GET" })
-        //if the response is 200, then return the data in json format
-        .then((d) => {
-          if (d.status !== 200) {
-            console.log(`Res status was not 200`);
-            setErr(true);
-          }
-          console.log("hit no user on profil4 page");
-          return d.json();
-        })
-        //if there is an error, then log the error
-        .then((d) => {
+        //if there is no error, then log the error
+        .then((response) => response.json())
+        .then((data) => {
           // Set the user state
-          setUser(d);
+          setUser(data);
         })
-        .catch((e) => {
+        //if there is a error, log it
+        .catch((error) => {
           console.log("hit no user on profile page");
-          console.log("Error occured: ", e);
+          console.log("Error occured: ", error);
         });
     }
   });
 
   //useEffect hook is used to fetch post data from the backend when the component is mounted.
   useEffect(() => {
-    //if there are no posts, fetch the posts data from the backend
+    //if there is an error, then return
     if (err) return;
     //fetch the posts data from the backend
     fetch("/api/posts", { method: "GET" })
       //if the response is 200, then return the data in json format
-      .then((d) => {
-        if (d.status !== 200) {
-          console.log(`Res status was not 200`);
-          setErr(true);
-        }
-        return d.json();
-      })
+      .then((response) => response.json())
       //if there is an error, then log the error
-      .then((d) => {
+      .then((data) => {
         // Set the posts state
         //filter to only show posts by the user
         if (filterCardsByAuthor) {
-          setPosts(d.filter((post: Post) => post.author === user?.username));
+          setPosts(data.filter((post: Post) => post.author === user?.username));
         }
       })
       .catch((e) => {
