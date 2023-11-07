@@ -48,62 +48,65 @@ let filterCardsByAuthor = false;
 //ProfilePage is a functional component declared using an arrow function. It doesn't receive any props, and it defines the component logic and JSX rendering within its body.
 const ProfilePage = () => {
   //useState is used to manage the component's state, specifically user, which is used to store user data.
-  //const [user, setUser] = useState<UserData | undefined>(undefined);
+  const [user, setUser] = useState<UserData | undefined>(undefined);
 
   //useState to manage component state, specifically posts, which is used to store post data.
-  //const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<any[]>([]);
+  //useState to manage component state, specifically err, which is used to store error data.
+  const [err, setErr] = useState(false);
   //useEffect hook is used to fetch user data from the backend when the component is mounted.
-  //   useEffect(() => {
-  //     //if there is no user, fetch the user data from the backend
-  //     if (!user) {
-  //       //fetch the user data from the backend
-  //       fetch("/api/auth/user", { method: "GET" })
-  //         //if the response is 200, then return the data in json format
-  //         .then((d) => {
-  //           if (d.status !== 200) {
-  //             console.log(`Res status was not 200`);
-  //           }
-  //           console.log("hit no user on profil4 page");
-  //           return d.json();
-  //         })
-  //         //if there is an error, then log the error
-  //         .then((d) => {
-  //           // Set the user state
-  //           setUser(d);
-  //         })
-  //         .catch((e) => {
-  //           console.log("hit no user on profile page");
-  //           console.log("Error occured: ", e);
-  //         });
-  //     }
-  //   });
+  useEffect(() => {
+    //if there is no user, fetch the user data from the backend
+    if (!user) {
+      //fetch the user data from the backend
+      fetch("/api/auth/user", { method: "GET" })
+        //if the response is 200, then return the data in json format
+        .then((d) => {
+          if (d.status !== 200) {
+            console.log(`Res status was not 200`);
+            setErr(true);
+          }
+          console.log("hit no user on profil4 page");
+          return d.json();
+        })
+        //if there is an error, then log the error
+        .then((d) => {
+          // Set the user state
+          setUser(d);
+        })
+        .catch((e) => {
+          console.log("hit no user on profile page");
+          console.log("Error occured: ", e);
+        });
+    }
+  });
 
   //useEffect hook is used to fetch post data from the backend when the component is mounted.
-  //   useEffect(() => {
-  //     //if there are no posts, fetch the posts data from the backend
-  //     if (posts.length === 0) {
-  //       //fetch the posts data from the backend
-  //       fetch("/api/posts", { method: "GET" })
-  //         //if the response is 200, then return the data in json format
-  //         .then((d) => {
-  //           if (d.status !== 200) {
-  //             console.log(`Res status was not 200`);
-  //           }
-  //           return d.json();
-  //         })
-  //         //if there is an error, then log the error
-  //         .then((d) => {
-  //           // Set the posts state
-  //           //filter to only show posts by the user
-  //           if (filterCardsByAuthor) {
-  //             setPosts(d.filter((post: Post) => post.author === user?.username));
-  //           }
-  //         })
-  //         .catch((e) => {
-  //           console.log("Error occured: ", e);
-  //         });
-  //     }
-  //   });
+  useEffect(() => {
+    //if there are no posts, fetch the posts data from the backend
+    if (err) return;
+    //fetch the posts data from the backend
+    fetch("/api/posts", { method: "GET" })
+      //if the response is 200, then return the data in json format
+      .then((d) => {
+        if (d.status !== 200) {
+          console.log(`Res status was not 200`);
+          setErr(true);
+        }
+        return d.json();
+      })
+      //if there is an error, then log the error
+      .then((d) => {
+        // Set the posts state
+        //filter to only show posts by the user
+        if (filterCardsByAuthor) {
+          setPosts(d.filter((post: Post) => post.author === user?.username));
+        }
+      })
+      .catch((e) => {
+        console.log("Error occured: ", e);
+      });
+  });
 
   //example set
 
