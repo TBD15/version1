@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./profile.module.scss";
 
-// Card import
-
 // mui component imports
 import Avatar from "@mui/joy/Avatar";
 import { useNavigate } from "react-router";
@@ -114,9 +112,20 @@ const ProfilePage = () => {
             {user?.username || "@kate"}
           </div>
         </div>
-        <div className={styles.posts}>
-          Posts
-          <div className={styles.allPosts}>post1</div>
+        <div className={styles.postsSection}>Posts</div>
+        <div className={styles.allPosts}>
+          {/* //map through the posts and display them */}
+          {posts.map((post) => (
+            // display the post image
+            <div className={styles.post}>
+              {/* // display the post image */}
+              <img
+                className={styles.postImage}
+                src={post.imageURL}
+                alt='Post'
+              />
+            </div>
+          ))}
         </div>
       </div>
     </body>

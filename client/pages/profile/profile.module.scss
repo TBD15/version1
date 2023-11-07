@@ -81,7 +81,7 @@ body {
   top: 440px;
 }
 
-.posts {
+.postsSection {
   font-size: 20px;
   margin-bottom: 10px;
   color: $color-secondary;
@@ -89,4 +89,8 @@ body {
 }
 
 .allPosts {
+  border: 1px solid $color-secondary;
+}
+.post {
+  border: 1px solid $color-secondary;
 }
