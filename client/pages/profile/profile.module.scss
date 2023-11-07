@@ -57,8 +57,8 @@ body {
   border-radius: 50%; /* Makes the image round */
   width: 170px; /* Adjust the width as needed */
   height: 170px; /* Adjust the height as needed */
-  position: relative;
-  top: -70px;
+  position: fixed;
+  top: 200px;
   object-fit: cover;
   z-index: 1; /* Maintain aspect ratio while covering the container */
   box-shadow: 0px 0px 6px $font-color;
@@ -66,7 +66,7 @@ body {
 
 .profilename {
   position: fixed;
-  top: 410px;
+  top: 400px;
   background-color: $font-main;
   font-size: 20px;
   overflow: hidden;
@@ -74,7 +74,7 @@ body {
 }
 
 .profileusername {
-  font-size: 10px;
+  font-size: 12px;
   margin-bottom: 10px;
   color: $font-main;
   position: fixed;
@@ -83,14 +83,36 @@ body {
 
 .postsSection {
   font-size: 20px;
-  margin-bottom: 10px;
+  // margin-bottom: 20px;
   color: $color-secondary;
-  text-align: center;
+  position: fixed;
+  text-align: left;
+  top: 470px;
+  width: 100%;
+  // height: 30px;
+  border-bottom: 1px solid $font-color;
 }
 
 .allPosts {
-  border: 1px solid $color-secondary;
+  display: grid;
+  top: 500px;
+  position: relative;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 4fr)
+  ); /* Adjust column width as needed */
+  // gap: 10px; /* Add gap between grid items */
+  //padding: 10px; /* Add padding to the grid */
+  justify-items: center; /* Center grid items horizontally */
 }
 .post {
-  border: 1px solid $color-secondary;
+  width: 250px; /* Set a fixed width for each post */
+  margin: 10px; /* Add some margin for spacing between posts */
+}
+
+.postImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: red;
 }
