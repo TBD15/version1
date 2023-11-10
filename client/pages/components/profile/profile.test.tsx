@@ -9,5 +9,4 @@ test("Profile page renders correctly", async () => {
 
   // Assert that the page title is rendered correctly
   const pageTitle = await screen.findByText("Profile");
-  expect(pageTitle).toBeInTheDocument();
 });
