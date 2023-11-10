@@ -1,12 +1,7 @@
-import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import { UserDocument } from "./UserModel";
 
-export interface Post {
-  /**
-   * The post's name, specified by the cluster owner.
-   */
-  name: string;
+export interface postInterface {
   /**
    * The post's description, specified by the cluster owner.
    */
@@ -15,17 +10,14 @@ export interface Post {
   comments: string[];
   links: string[];
   timestamp: Date;
+  image: string;
   /**
    * The post's owner - this should be a reference to a user document.
    */
   owner: UserDocument;
 }
 
-const postSchema = new mongoose.Schema<Post>({
-  name: {
-    type: String,
-    required: true,
-  },
+const postSchema = new mongoose.Schema<postInterface>({
   description: {
     type: String,
   },
@@ -50,6 +42,10 @@ const postSchema = new mongoose.Schema<Post>({
     ref: "User",
     required: true,
   },
+  image: {
+    type: String,
+    required: true,
+  },
 });
 
-exports.default = postSchema;
+export const Post = mongoose.model("Post", postSchema);
