@@ -4,6 +4,7 @@ describe("template spec", () => {
     cy.get("div").should("contain", "This is the home page.");
   });
 });
+
 describe("template spec", () => {
   it("passes", () => {
     cy.visit("http://localhost:3000/signin");
